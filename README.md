@@ -2,13 +2,18 @@
 
 YAML Config reader makes random access to the configuration easier
 
-# Installation
-
-`npm i yconf`
-
-To install npm see [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm).
-
 # Usage
+
+Install yconf using `npm i yconf`
+
+Example:
 
 ```
 const {YConfig} = require('yconf');
+
+const conf = new YConfig();
+
+conf.loadFile('./resources/config.yaml');
+
+console.log(`Name of config: ${conf.getOrDefault('metadata.name', 'untitled')}`);
+```
