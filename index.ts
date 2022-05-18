@@ -3,15 +3,16 @@ import { isMap, isSeq, YAMLMap, YAMLSeq } from "yaml";
 const {readFileSync} = require('fs');
 const yaml = require('yaml');
 
-exports.YConfig = class {
-  config: YAMLMap;
+class YConfig {
+  config: YAMLMap | null;
   inited: boolean;
   error: boolean;
   
-  constructor() {
+  constructor(filename?: string) {
     this.config = null;
     this.inited = false;
     this.error = false;
+    if (filename) this.loadFile(filename);
   }
 
   loadFile(filename: string): void {
@@ -33,6 +34,7 @@ exports.YConfig = class {
   }
 
   getOrDefault(path: string, defaultValue: any): any {
+    if (this.config === null) return defaultValue;
     return this._getOrDefault(path.split('.'), defaultValue, this.config);
   }
 
@@ -46,3 +48,7 @@ exports.YConfig = class {
     return defaultValue;
   }
 };
+
+export { YConfig };
+
+module.exports = { YConfig };

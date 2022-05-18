@@ -1,6 +1,6 @@
 {
   "name": "yconf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "YAML config",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "config",
     "reader"
   ],
+  "type": "module",
   "author": "chakradarraju@gmail.com",
   "license": "ISC",
   "bugs": {
