@@ -1,6 +1,6 @@
 {
   "name": "yconf",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "YAML config",
   "main": "index.js",
   "scripts": {

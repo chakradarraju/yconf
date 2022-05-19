@@ -50,5 +50,3 @@ class YConfig {
 };
 
 export { YConfig };
-
-module.exports = { YConfig };
