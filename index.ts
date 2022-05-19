@@ -1,7 +1,7 @@
 import { isMap, isSeq, YAMLMap, YAMLSeq } from "yaml";
 
-const {readFileSync} = require('fs');
-const yaml = require('yaml');
+import { readFileSync } from 'fs';
+import * as yaml from 'yaml';
 
 class YConfig {
   config: YAMLMap | null;
@@ -25,7 +25,7 @@ class YConfig {
       return;
     }
     try {
-      this.config = yaml.parseAllDocuments(config)[0].contents;
+      this.config = (<YAMLMap>yaml.parseAllDocuments(config)[0].contents);
     } catch (e) {
       console.error('Caught exception loading config', e);
       this.error = true;
